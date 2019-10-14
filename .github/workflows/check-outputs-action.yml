@@ -13,11 +13,9 @@ jobs:
     steps:
     - uses: matsubara0507/actions/outputs@master
       id: hoge
-      env:
-        HOGE: hogege
       with:
         script: ./.github/scripts/echo.bash
     - uses: docker://ubuntu:18.04
       with:
         entrypoint: /bin/echo
-        args: ${{ steps.hoge.outputs.result }} 
+        args: ${{ steps.hoge.outputs.result }}

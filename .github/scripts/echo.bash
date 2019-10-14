@@ -2,4 +2,4 @@
 
 set -eux
 
-echo "test ${HOGE}"
+echo "test hogege"
