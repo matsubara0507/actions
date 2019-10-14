@@ -10,7 +10,7 @@ try {
       core.setOutput("result", result);
     }
   };
-  await exec.exec(script, options);
+  exec.exec(script, options);
 } catch (error) {
   core.setFailed(error.message);
 }
