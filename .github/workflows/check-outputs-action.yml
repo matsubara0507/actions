@@ -19,7 +19,7 @@ jobs:
       env:
         HOGE: hogege
       with:
-        script: ./.github/scripts/echo.bash
+        script_path: ./.github/scripts/echo.bash
     - uses: docker://ubuntu:18.04
       with:
         entrypoint: /bin/echo

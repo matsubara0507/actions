@@ -1,12 +1,16 @@
 name: 'Outputs'
 description: 'use output to next step'
 inputs:
-  script:
-    description: script path to dump output
+  script_path:
+    description: 'script file path to dump output'
     required: true
+  shell:
+    description: 'shell to exec script file'
+    require: false
+    default: 'bash'
 outputs:
   result:
-    description: reslut to exec script
+    description: 'reslut to exec script'
 runs:
   using: 'node12'
   main: 'main.js'

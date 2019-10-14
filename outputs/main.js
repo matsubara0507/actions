@@ -2,7 +2,8 @@ const core = require('@actions/core');
 const exec = require('@actions/exec');
 
 try {
-  const script = core.getInput('script');
+  const path = core.getInput('script_path');
+  const shell = core.getInput('shell');
   const options = {};
   options.listeners = {
     stdout: function(data) {
@@ -10,7 +11,7 @@ try {
       core.setOutput("result", result);
     }
   };
-  exec.exec('bash', [script], options).catch(err => core.setFailed(err.message));
+  exec.exec(shell, [path], options).catch(err => core.setFailed(err.message));
 } catch (err) {
   core.setFailed(err.message);
 }
