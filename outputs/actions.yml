@@ -1,0 +1,12 @@
+name: 'Outputs'
+description: 'use output to next step'
+inputs:
+  script:
+    description: script path to dump output
+    required: true
+outputs:
+  result:
+    description: reslut to exec script
+runs:
+  using: 'node12'
+  main: 'main.js'

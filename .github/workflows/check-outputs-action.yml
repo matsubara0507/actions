@@ -1,0 +1,23 @@
+name: Check Outputs Action
+on:
+  push:
+    branch:
+    - master
+    paths:
+    - '.github/workflows/check-outputs-action.yml'
+    - 'outputs/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: matsubara0507/actions/outputs@master
+      id: hoge
+      env:
+        HOGE: hogege
+      with:
+        script: ./.github/scripts/echo.bash
+    - uses: docker://ubuntu:18.04
+      with:
+        entrypoint: /bin/echo
+        args: ${{ steps.hoge.outputs.result }} 
