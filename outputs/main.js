@@ -10,7 +10,7 @@ try {
       core.setOutput("result", result);
     }
   };
-  exec.exec(script, options).catch(err => core.setFailed(err.message));
+  exec.exec('bash', [script], options).catch(err => core.setFailed(err.message));
 } catch (err) {
   core.setFailed(err.message);
 }
