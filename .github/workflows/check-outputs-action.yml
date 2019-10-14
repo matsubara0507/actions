@@ -11,6 +11,9 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
     - uses: matsubara0507/actions/outputs@master
       id: hoge
       with:
