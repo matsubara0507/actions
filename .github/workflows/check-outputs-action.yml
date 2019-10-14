@@ -16,6 +16,8 @@ jobs:
         fetch-depth: 1
     - uses: matsubara0507/actions/outputs@master
       id: hoge
+      env:
+        HOGE: hogege
       with:
         script: ./.github/scripts/echo.bash
     - uses: docker://ubuntu:18.04
