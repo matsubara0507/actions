@@ -13,7 +13,7 @@ use [tweepy](https://github.com/tweepy/tweepy).
 
 ## Example usage
 
-```
+```yaml
 uses: matsubara0507/actions/tweet@master
 with:
   consumer_key: ${{ secrets.TWITTER_CONSUMER_KEY }}
