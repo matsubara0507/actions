@@ -1,0 +1,31 @@
+name: 'Tweet'
+description: 'Tweet Message by API'
+inputs:
+  consumer_key:
+    description: 'Consumer Key for OAuth'
+    required: true
+  consumer_secret:
+    description: 'Consumer Secret for OAuth'
+    required: true
+  access_token:
+    description: 'Access Token for Twitter API'
+    required: true
+  access_token_secret:
+    description: 'Access Token Secret for Twitter API'
+    required: true
+  message:
+    description: 'Tweet Message'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.consumer_key }}
+    - ${{ inputs.consumer_secret }}
+    - ${{ inputs.access_token }}
+    - ${{ inputs.access_token_secret }}
+    - ${{ inputs.message }}
+branding:
+  color: 'blue'
+  icon: 'message-square'
