@@ -4,7 +4,8 @@ on:
     branch:
     - master
     paths:
-    - 'tweet/**/*'
+    - '.github/workflows/check-tweet-action.yml'
+    - 'tweet/**'
 
 jobs:
   build:
