@@ -5,7 +5,7 @@ try {
   const script = core.getInput('script');
   const options = {};
   options.listeners = {
-    stdout: (data: Buffer) => {
+    stdout: function(data) {
       const result = data.toString();
       core.setOutput("result", result);
     }
