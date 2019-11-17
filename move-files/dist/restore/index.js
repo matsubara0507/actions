@@ -920,7 +920,9 @@ function run() {
             const source = utils.resolvePath(core.getInput("source_dir", { required: true }));
             const files = core
                 .getInput("source_files", { required: true })
-                .split("\n");
+                .split(/\r?\n/)
+                .filter(pat => pat)
+                .map(pat => pat.trim());
             const target = utils.resolvePath(core.getInput("target_dir", { required: true }));
             yield io.mkdirP(source);
             core.debug(`mkdir -p ${source}`);

@@ -1,4 +1,4 @@
-name: Check Outputs Action
+name: Check Move-files Action
 on:
   push:
     branch:
@@ -22,5 +22,5 @@ jobs:
           fuga
         target_dir: .github/temp
     - run: |
-        ls .github/test
-        ls .github/temp
+        ls -la .github/test
+        ls -la .github/temp

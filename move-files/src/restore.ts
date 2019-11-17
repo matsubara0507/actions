@@ -9,7 +9,9 @@ async function run(): Promise<void> {
         );
         const files = core
             .getInput("source_files", { required: true })
-            .split("\n");
+            .split(/\r?\n/)
+            .filter(pat => pat)
+            .map(pat => pat.trim());
         const target = utils.resolvePath(
             core.getInput("target_dir", { required: true })
         );
