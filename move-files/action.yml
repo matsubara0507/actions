@@ -1,0 +1,14 @@
+name: 'Move Files'
+description: 'move files to other direcotory'
+inputs:
+  source_dir:
+    required: true
+  source_files:
+    required: true
+  target_dir:
+    require: true
+runs:
+  using: 'node12'
+  main: 'dist/move/index.js'
+  post: 'dist/restore/index.js'
+  post-if: 'success()'

@@ -1,0 +1,26 @@
+name: Check Outputs Action
+on:
+  push:
+    branch:
+    - master
+    paths:
+    - '.github/workflows/check-move-files-action.yml'
+    - 'move-files/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - uses: matsubara0507/actions/move-files@master
+      with:
+        source_dir: .github/test
+        source_files: |
+          hoge
+          fuga
+        target_dir: .github/temp
+    - run: |
+        ls .github/test
+        ls .github/temp
