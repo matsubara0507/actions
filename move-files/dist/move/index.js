@@ -393,9 +393,14 @@ function run() {
             core.debug(`mkdir -p ${target}`);
             files.forEach(function (file) {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const path = source.concat(file);
-                    yield io.mv(path, target);
-                    core.debug(`mv ${path} to ${target}`);
+                    try {
+                        const path = source.concat("/", file);
+                        yield io.mv(path, target);
+                        core.debug(`mv ${path} to ${target}`);
+                    }
+                    catch (error) {
+                        core.warning(error.message);
+                    }
                 });
             });
         }

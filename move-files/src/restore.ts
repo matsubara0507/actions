@@ -20,9 +20,13 @@ async function run(): Promise<void> {
         core.debug(`mkdir -p ${source}`);
 
         files.forEach(async function(file) {
-            const path = target.concat(file);
-            await io.mv(path, source);
-            core.debug(`mv ${path} to ${source}`);
+            try {
+                const path = target.concat("/", file);
+                await io.mv(path, source);
+                core.debug(`mv ${path} to ${source}`);
+            } catch (error) {
+                core.warning(error.message);
+            }
         });
     } catch (error) {
         core.warning(error.message);
